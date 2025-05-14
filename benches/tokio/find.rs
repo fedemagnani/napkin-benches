@@ -164,7 +164,7 @@ fn find(c: &mut Criterion) {
     let rt = Builder::new_current_thread().enable_all().build().unwrap();
     let mut rng = rand::rngs::StdRng::seed_from_u64(64);
 
-    let num_tasks = [4, 8, 16];
+    let num_tasks = [10, 100, 1_000];
     let indices_per_task = [100, 1_000, 10_000];
     let channels_capacities = [1, 100];
 
