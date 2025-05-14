@@ -4,17 +4,37 @@ version = "0.1.0"
 edition = "2024"
 
 [[bench]]
-name = "collections"
+name = "collections-find"
+path = "benches/collections/find.rs"
 harness = false
 
 [[bench]]
-name = "memory_access"
+name = "memory-access"
+path = "benches/memory/access.rs"
+harness = false
+
+[[bench]]
+name = "tokio-increment"
+path = "benches/tokio/increment.rs"
+harness = false
+
+[[bench]]
+name = "tokio-find"
+path = "benches/tokio/find.rs"
 harness = false
 
 [dependencies]
-criterion = "0.5.1"
+criterion = { version = "0.5.1", features = ["async_tokio"] }
 rand = "0.9.1"
 rustc-hash = "2.1.1"
 smallvec = "1.15.0"
 dashmap = "6.1.0"
 indexmap = "2.9.0"
+tokio = { version = "1.45.0", features = [
+    "rt",
+    "rt-multi-thread",
+    "sync",
+    "macros",
+] }
+tokio-stream = { version = "0.1.17", features = ["sync"] }
+crossbeam = "0.8.4"
